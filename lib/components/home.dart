@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dev_dsgnr/bloc/user_profile.dart';
 import 'package:dev_dsgnr/bloc/user_profile_bloc.dart';
-import 'package:dev_dsgnr/components/HERO_SECTION.DART';
 import 'package:dev_dsgnr/components/about.dart';
 import 'package:dev_dsgnr/components/fade_in.dart';
 import 'package:dev_dsgnr/components/header.dart';
+import 'package:dev_dsgnr/components/hero_section.dart';
 import 'package:dev_dsgnr/components/projects.dart';
 import 'package:dev_dsgnr/firebase/firebase_service_impl.dart';
 import 'package:flutter/material.dart';
