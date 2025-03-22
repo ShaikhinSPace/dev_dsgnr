@@ -1,19 +1,28 @@
 part of 'user_profile_bloc.dart';
 
-abstract class UserProfileState {}
-
-class UserProfileInitial extends UserProfileState {}
-
-class UserProfileLoading extends UserProfileState {}
-
-class UserProfileLoaded extends UserProfileState {
-  final UserProfile userProfile;
-
-  UserProfileLoaded(this.userProfile);
+abstract class UserState extends Equatable {
+  @override
+  List<Object?> get props => [];
 }
 
-class UserProfileError extends UserProfileState {
+class UserInitial extends UserState {}
+
+class UserLoading extends UserState {}
+
+class UserLoaded extends UserState {
+  final UserData userData;
+
+  UserLoaded(this.userData);
+
+  @override
+  List<Object?> get props => [userData];
+}
+
+class UserError extends UserState {
   final String message;
 
-  UserProfileError(this.message);
+  UserError(this.message);
+
+  @override
+  List<Object?> get props => [message];
 }

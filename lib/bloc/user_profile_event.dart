@@ -1,9 +1,13 @@
 part of 'user_profile_bloc.dart';
 
-abstract class UserProfileEvent {}
+abstract class UserEvent extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
-class FetchUserProfileEvent extends UserProfileEvent {
-  final String documentId;
+class FetchUserData extends UserEvent {
+  FetchUserData();
 
-  FetchUserProfileEvent(this.documentId);
+  @override
+  List<Object?> get props => [];
 }

@@ -1,76 +1,69 @@
 import 'package:dev_dsgnr/components/projects.dart';
 import 'package:flutter/material.dart';
 
-class BrutalistProjectCard extends StatelessWidget {
+class GlassmorphicProjectCard extends StatelessWidget {
   final Project project;
-  const BrutalistProjectCard({super.key, required this.project});
+
+  const GlassmorphicProjectCard({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.white,
-          width: 2,
-        ), // Thick borders for brutalism
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Positioned.fill(
-                  child: Image.asset(project.image, fit: BoxFit.cover),
-                ),
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  child: Container(
-                    color: Colors.red,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: Text(
-                      project.title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        // Use a dark gradient that complements the black background
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.white.withOpacity(0.2)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Image.network(project.image, fit: BoxFit.scaleDown),
+            ),
+            Container(
+              padding: const EdgeInsets.all(12),
+              // Slightly dark overlay for the details section
+              color: Colors.black.withOpacity(0.3),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    project.title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.all(10),
-            child: Wrap(
-              spacing: 5,
-              runSpacing: 5,
-              children:
-                  project.tags
-                      .map(
-                        (tag) => Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          color: Colors.black,
-                          child: Text(
-                            tag,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
+                  const SizedBox(height: 4),
+                  Wrap(
+                    spacing: 8,
+                    children:
+                        project.tags.map((tag) {
+                          return Chip(
+                            label: Text(
+                              tag,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
                             ),
-                          ),
-                        ),
-                      )
-                      .toList(),
+                            backgroundColor: const Color.fromARGB(
+                              255,
+                              0,
+                              57,
+                              103,
+                            ),
+                          );
+                        }).toList(),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
