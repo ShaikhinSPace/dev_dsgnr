@@ -41,7 +41,12 @@ class _HomePageState extends State<HomePage> {
                 if (state is UserInitial) {
                   return Center(child: CircularProgressIndicator());
                 } else if (state is UserLoading) {
-                  return Center(child: Text('Error loading user profile'));
+                  return Center(
+                    child: FadeInSection(
+                      keyValue: 'blahh',
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                  );
                 } else if (state is UserLoaded) {
                   UserData userProfile = state.userData;
                   return Column(

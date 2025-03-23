@@ -8,7 +8,7 @@ class SwissAboutSection extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,7 +17,7 @@ class SwissAboutSection extends StatelessWidget {
             'ABOUT',
             style: TextStyle(fontSize: 64, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 30),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,12 +59,19 @@ class SwissAboutSection extends StatelessWidget {
                       style: TextStyle(fontSize: 20, height: 1.5),
                     ),
                     SizedBox(height: 40),
-                    Container(
-                      width: double.infinity,
-                      height: 2,
-                      color: Colors.black,
-                    ),
+
                     SizedBox(height: 40),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Divider(thickness: 2, color: Colors.black, height: 40),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
                     Text(
                       'EXPERTISE',
                       style: TextStyle(
@@ -78,12 +85,27 @@ class SwissAboutSection extends StatelessWidget {
                       runSpacing: 10,
                       children:
                           [
-                                'UI/UX DESIGN',
                                 'FLUTTER',
                                 'DART',
-                                'REACT NATIVE',
+                                'BLOC STATE MANAGEMENT',
                                 'MOBILE DEVELOPMENT',
-                                'WEB DESIGN',
+                                'CROSS-PLATFORM DEVELOPMENT',
+                                'UI/UX DESIGN',
+                                'RESTful API',
+                                'FIREBASE',
+                                'SECURE STORAGE',
+                                'ENCRYPTION',
+                                'PERFORMANCE OPTIMIZATION',
+                                'ANIMATIONS',
+                                'CODE REVIEW',
+                                'DEBUGGING',
+                                'TESTING',
+                                'VERSION CONTROL',
+                                'AGILE METHODOLOGIES',
+                                'CLEAN ARCHITECTURE',
+                                'SOLID PRINCIPLES',
+                                'Multi Threading',
+                                'MEMORY MANAGEMENT',
                               ]
                               .map(
                                 (skill) => Container(
@@ -106,8 +128,26 @@ class SwissAboutSection extends StatelessWidget {
                   ],
                 ),
               ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 400,
+                  color: Colors.black,
+                  child: Center(
+                    child: Text(
+                      '02',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 120,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
+          Divider(thickness: 2, color: Colors.black, height: 40),
         ],
       ),
     );

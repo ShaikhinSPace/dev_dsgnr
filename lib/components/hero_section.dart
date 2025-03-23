@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SwissHeroSection extends StatelessWidget {
   final String? header1;
@@ -22,28 +23,46 @@ class SwissHeroSection extends StatelessWidget {
             children: [
               Text(
                 header1 ?? 'Null',
-                style: TextStyle(
+                style: GoogleFonts.libreCaslonDisplay(
+                  // Replace 'Lato' with your preferred font
                   fontSize: fontSize,
                   fontWeight: FontWeight.bold,
-                  height: 0.9, // Tight line height for brutalism
+                  height: 0.9,
+                  color: Colors.black,
                 ),
               ),
               Text(
                 header2 ?? 'Null',
-                style: TextStyle(
+                style: GoogleFonts.adamina(
                   fontSize: fontSize,
                   fontWeight: FontWeight.bold,
                   height: 0.9,
                   color: Color.fromARGB(255, 2, 2, 220),
                 ),
               ),
-              Text(
-                header3 ?? 'Null',
-                style: TextStyle(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.bold,
-                  height: 0.9,
-                ),
+              Row(
+                children: [
+                  Text(
+                    header3 ?? 'Null',
+                    style: GoogleFonts.libreCaslonDisplay(
+                      // Replace 'Lato' with your preferred font
+                      fontSize: fontSize,
+                      fontWeight: FontWeight.bold,
+                      height: 0.9,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    '*',
+                    style: GoogleFonts.libreCaslonDisplay(
+                      // Replace 'Lato' with your preferred font
+                      fontSize: fontSize,
+                      fontWeight: FontWeight.bold,
+                      height: 0.9,
+                      color: Color.fromARGB(255, 2, 2, 220),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 40),
               Container(

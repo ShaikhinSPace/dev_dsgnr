@@ -11,6 +11,7 @@ class GlassmorphicProjectCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Container(
+        height: 200,
         // Use a dark gradient that complements the black background
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

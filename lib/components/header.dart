@@ -1,4 +1,3 @@
-import 'package:dev_dsgnr/assetsource.dart';
 import 'package:flutter/material.dart';
 
 class BrutalistHeader extends StatelessWidget {
@@ -12,7 +11,12 @@ class BrutalistHeader extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           color: Colors.transparent,
-          child: SizedBox(height: 100, child: Image.asset(AssetSource().logo)),
+          child: SizedBox(
+            height: 100,
+            child: Image.network(
+              'https://files-eight-wine.vercel.app/slogo.png',
+            ),
+          ),
         ),
         CircleAvatar(
           radius: 50,
