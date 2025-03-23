@@ -107,7 +107,8 @@ class SwissAboutSection extends StatelessWidget {
                       const SizedBox(width: 20),
                       _buildTextSection(
                         title: '',
-                        content: 'swiss design, brutalist design',
+                        content:
+                            'I create digital experiences that combine form and function. My work is guided by minimalist principles, focusing on what matters most: the user experience.',
                       ),
                     ],
                   ),
