@@ -19,8 +19,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    context.read<UserBloc>().add(FetchUserData());
     super.initState();
+    // Fire off event after super.initState() for safety
+    context.read<UserBloc>().add(FetchUserData());
   }
 
   @override
@@ -30,35 +31,31 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           children: [
             Positioned.fill(
-              child: GridPaper(
-                interval: 100,
-                divisions: 3,
-                color: Color.fromARGB(255, 2, 2, 220),
+              child: Expanded(
+                child: GridPaper(
+                  interval: 100,
+                  divisions: 3,
+                  color: Colors.grey,
+                ),
               ),
             ),
+
             BlocBuilder<UserBloc, UserState>(
               builder: (context, state) {
-                if (state is UserInitial) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (state is UserLoading) {
-                  return Center(
-                    child: FadeInSection(
-                      keyValue: 'blahh',
-                      child: Center(child: CircularProgressIndicator()),
-                    ),
-                  );
+                if (state is UserInitial || state is UserLoading) {
+                  return const Center(child: CircularProgressIndicator());
                 } else if (state is UserLoaded) {
-                  UserData userProfile = state.userData;
+                  final UserData userProfile = state.userData;
                   return Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Stack(
                           children: [
-                            // Moves GridPaper to the background
+                            // Background GridPaper is already added in the main Stack.
                             Column(
                               children: [
-                                BrutalistHeader(),
+                                const BrutalistHeader(),
                                 SwissHeroSection(
                                   header1:
                                       userProfile
@@ -79,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                                           ?.stringValue ??
                                       '',
                                 ),
-                                FadeInSection(
+                                const FadeInSection(
                                   keyValue: 'About',
                                   child: SwissAboutSection(),
                                 ),
@@ -92,11 +89,17 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      SwissFooter(),
+                      const SwissFooter(),
                     ],
                   );
                 } else {
-                  return Container();
+                  // Optionally handle error state
+                  return Center(
+                    child: Text(
+                      'Something went wrong.',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                  );
                 }
               },
             ),

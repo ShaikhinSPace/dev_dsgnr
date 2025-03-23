@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SwissFooter extends StatelessWidget {
   const SwissFooter({super.key});
@@ -17,11 +18,19 @@ class SwissFooter extends StatelessWidget {
           ),
           Row(
             children: [
-              Text(
-                'INSTAGRAM',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () {
+                  launchUrl(
+                    Uri.parse('https://www.instagram.com/sxmeersh/'),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+                child: Text(
+                  'INSTAGRAM',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               SizedBox(width: 20),

@@ -76,6 +76,10 @@ class SwissHeroSection extends StatelessWidget {
             ],
           ),
         ),
+        // Image.network(
+        //   'https://files-eight-wine.vercel.app/banner.png',
+        //   width: screenWidth > 600 ? screenWidth * 0.5 : screenWidth * 0.4,
+        // ),
       ],
     );
   }

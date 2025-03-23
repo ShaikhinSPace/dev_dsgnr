@@ -18,11 +18,6 @@ class BrutalistHeader extends StatelessWidget {
             ),
           ),
         ),
-        CircleAvatar(
-          radius: 50,
-          backgroundColor: Color.fromARGB(255, 2, 2, 220),
-          child: Icon(Icons.person, color: Colors.white),
-        ),
       ],
     );
   }
