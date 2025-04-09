@@ -105,11 +105,7 @@ class SwissAboutSection extends StatelessWidget {
                     children: [
                       CircleWidget(),
                       const SizedBox(width: 20),
-                      _buildTextSection(
-                        title: '',
-                        content:
-                            'I create digital experiences that combine form and function. My work is guided by minimalist principles, focusing on what matters most: the user experience.',
-                      ),
+                      _buildTextSection(title: '', content: 'This is a Test'),
                     ],
                   ),
                 ],
