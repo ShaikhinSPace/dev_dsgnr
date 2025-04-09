@@ -11,7 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
-    MaterialApp(debugShowCheckedModeBanner: false, home: NoWebPageForNow()),
+    App(),
+    // MaterialApp(debugShowCheckedModeBanner: false, home: NoWebPageForNow()),
   );
 }
 
