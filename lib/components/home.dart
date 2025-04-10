@@ -31,13 +31,7 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           children: [
             Positioned.fill(
-              child: Expanded(
-                child: GridPaper(
-                  interval: 100,
-                  divisions: 3,
-                  color: Colors.grey,
-                ),
-              ),
+              child: GridPaper(interval: 100, divisions: 3, color: Colors.grey),
             ),
 
             BlocBuilder<UserBloc, UserState>(
