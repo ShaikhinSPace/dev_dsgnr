@@ -65,7 +65,7 @@ class SwissHeroSection extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 40),
-              Container(
+              SizedBox(
                 width:
                     screenWidth > 600 ? screenWidth * 0.5 : screenWidth * 0.8,
                 child: Text(

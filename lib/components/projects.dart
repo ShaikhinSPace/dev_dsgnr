@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:dev_dsgnr/components/project_card.dart';
+import 'package:flutter/material.dart';
 
 class GlassmorphicProjects extends StatelessWidget {
-  GlassmorphicProjects({Key? key}) : super(key: key);
+  GlassmorphicProjects({super.key});
 
   final List<Project> projects = [
     Project(
@@ -79,7 +79,7 @@ class GlassmorphicProjects extends StatelessWidget {
                   mainAxisSpacing: 20,
                 ),
                 itemBuilder: (context, index) {
-                  return GlassmorphicProjectCard(project: projects[index]);
+                  return ProjectCard(project: projects[index]);
                 },
               ),
             ),
