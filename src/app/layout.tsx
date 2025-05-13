@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer'; // Import Footer
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'AppDev Portfolio | Creative Mobile Experiences', // Enhanced title
+  title: 'Sameer Alam Shaikh | Developer | Designer', // Enhanced title
   description: 'Portfolio of a passionate Mobile App Developer crafting unique and engaging digital experiences.', // Enhanced description
 };
 

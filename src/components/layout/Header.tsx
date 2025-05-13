@@ -7,7 +7,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold group transition-colors duration-200"> {/* Simple link */}
           <Code className="h-7 w-7 text-accent transition-transform duration-200" /> {/* Simple icon */}
-          <span>AppDev Portfolio</span>
+          <span>Sameer Alam Shaikh</span>
         </Link>
         <nav>
           <ul className="flex space-x-6">

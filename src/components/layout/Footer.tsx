@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="bg-secondary text-secondary-foreground py-6 mt-16 md:mt-24 border-t-2 border-foreground"> {/* Solid background, stark border */}
       <div className="container mx-auto px-4 text-center text-sm">
         {currentYear !== null ? (
-          <p>&copy; {currentYear} AppDev Portfolio. Built Functionally.</p> /* Updated text */
+          <p>&copy; {currentYear} Sameer Alam Shaikh </p> /* Updated text */
         ) : (
           <p>Loading year...</p>
         )}
