@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Import Toaster
-import Header from '@/components/layout/Header'; // Import Header
-import Footer from '@/components/layout/Footer'; // Import Footer
+import { Toaster } from "@/components/ui/toaster";
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import { SmoothScrollProvider } from '@/lib/smooth-scroll';
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Sameer Alam Shaikh | Developer | Designer', // Enhanced title
-  description: 'Portfolio of a passionate Mobile App Developer crafting unique and engaging digital experiences.', // Enhanced description
+  title: 'Mobile Developer | Building Software That Moves Millions',
+  description: 'Mobile applications serving over 1 million users across government, healthcare, and education sectors. Technical expertise in React Native, Flutter, and native development.',
 };
 
 export default function RootLayout({
@@ -17,18 +18,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      {/* Removed whitespace between <html> and <body> */}
+    <html lang="en" className="h-full">
       <body className={cn(
-        "min-h-screen bg-gradient-to-br from-background via-background to-secondary/10 font-sans antialiased flex flex-col", // Subtle gradient background
+        "min-h-screen bg-background text-foreground font-sans antialiased flex flex-col overflow-x-hidden dark",
         GeistSans.variable
       )}>
-        <Header />
-        <main className="flex-grow container mx-auto px-4 py-12 md:py-16"> {/* Adjusted padding */}
-          {children}
-        </main>
-        <Footer />
-        <Toaster /> {/* Add Toaster component */}
+        <SmoothScrollProvider>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <Toaster />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

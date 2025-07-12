@@ -1,40 +1,104 @@
 'use client';
 
-import { buttonVariants } from "@/components/ui/button"; // Import buttonVariants
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils"; // Import cn
 
 const socialLinks = [
-  { name: "GitHub", url: "https://github.com/yourusername", Icon: Github }, // Replace with actual URL
-  { name: "LinkedIn", url: "https://linkedin.com/in/yourusername", Icon: Linkedin }, // Replace with actual URL
-  { name: "Twitter", url: "https://twitter.com/yourusername", Icon: Twitter }, // Replace with actual URL
-  { name: "Email", url: "mailto:your.email@example.com", Icon: Mail }, // Added Email link
+  { 
+    name: "GitHub", 
+    url: "https://github.com/ShaikhinSPace", 
+    description: "Open source contributions"
+  },
+  { 
+    name: "LinkedIn", 
+    url: "https://linkedin.com/in/yourprofile", 
+    description: "Professional connections"
+  },
+  { 
+    name: "Email", 
+    url: "mailto:sameer@example.com", 
+    description: "Direct communication"
+  }
 ];
 
 const SocialLinks = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
   return (
-    <section id="social" className="text-center py-16 md:py-20 bg-secondary border-y-2 border-foreground rounded-none"> {/* Stark borders, no rounding */}
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">Connect With Me</h2> {/* Primary color title */}
-      <div className="flex justify-center gap-4 md:gap-6"> {/* Adjusted gap */}
-        {socialLinks.map(({ name, url, Icon }) => (
-           // Apply button styles directly to Link
-          <Link
-            key={name}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Link to ${name}`}
-            className={cn(
-              buttonVariants({ variant: "outline", size: "icon" }),
-              "border-2 border-foreground text-foreground hover:bg-muted hover:text-foreground transition-colors duration-150 w-12 h-12 rounded-sm shadow-none hover:shadow-none transform-none hover:scale-100" // Starker border, slight rounding, no shadow/scale
-            )}
-          >
-            <Icon className="h-6 w-6" /> {/* Slightly smaller icon */}
-          </Link>
-        ))}
-      </div>
-       {/* No <style jsx> here */}
+    <section 
+      ref={ref}
+      id="social" 
+      className="relative py-20 bg-background"
+    >
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="max-w-6xl mx-auto px-8"
+      >
+        <motion.div variants={titleVariants} className="mb-16">
+          <div className="text-primary text-sm font-medium tracking-wider uppercase mb-6">
+            Connect
+          </div>
+          <h2 className="text-3xl md:text-4xl text-foreground font-light leading-tight">
+            Find me across the{" "}
+            <span className="text-primary">digital landscape</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          className="space-y-6"
+        >
+          {socialLinks.map((social, index) => (
+            <motion.div
+              key={social.name}
+              variants={titleVariants}
+              className="border-b border-border pb-6 last:border-b-0"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl text-foreground mb-2">{social.name}</h3>
+                  <p className="text-muted-foreground">{social.description}</p>
+                </div>
+                <Link
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary/80 transition-colors duration-200 text-sm font-medium"
+                >
+                  Visit →
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

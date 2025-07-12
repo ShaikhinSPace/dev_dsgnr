@@ -1,4 +1,4 @@
-# **App Name**: AppDev Portfolio
+# **App Name**: Sameer Alam Shaikh
 
 ## Core Features:
 

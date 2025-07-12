@@ -1,51 +1,201 @@
 'use client';
 
-import { buttonVariants } from "@/components/ui/button"; // Import buttonVariants
-import { ArrowDown, Smartphone } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils"; // Import cn for conditional classes
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="text-center py-20 md:py-32 min-h-[60vh] flex flex-col justify-center items-center bg-background border-b-2 border-foreground rounded-none overflow-hidden relative"> {/* Stark border, no rounding/gradient */}
-      {/* Optional: Add simple geometric shapes if needed, but keep minimal */}
-      {/* <div className="absolute inset-0 -z-10 overflow-hidden opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-none"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-accent rounded-none transform rotate-12"></div>
-      </div> */}
+    <section className="relative min-h-screen flex items-start justify-center pt-32 bg-background">
+      <div className="max-w-5xl mx-auto px-8">
+        
+        {/* Editorial-style intro */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-16 relative"
+        >
+          {/* Floating accent elements */}
+          <motion.div
+            animate={{ 
+              y: [0, -10, 0],
+              rotate: [0, 2, 0]
+            }}
+            transition={{ 
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute -top-4 -left-4 w-24 h-24 bg-primary/5 rounded-full blur-xl"
+          />
+          <motion.div
+            animate={{ 
+              y: [0, 15, 0],
+              rotate: [0, -3, 0]
+            }}
+            transition={{ 
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+            className="absolute top-20 -right-8 w-32 h-32 bg-primary/3 rounded-full blur-2xl"
+          />
+          
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-primary text-sm font-medium tracking-wider uppercase mb-6 relative"
+          >
+            <span className="relative z-10">Digital Craftsman</span>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="absolute bottom-0 left-0 h-0.5 bg-primary/30"
+            />
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl text-foreground mb-8 leading-[0.9] font-light relative">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="block"
+            >
+              Building software that moves{" "}
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-primary relative inline-block"
+            >
+              millions
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="absolute -inset-2 bg-primary/10 rounded-lg -z-10"
+              />
+            </motion.span>
+          </h1>
+        </motion.div>
 
-      <Smartphone className="mx-auto h-16 w-16 text-primary mb-6" /> {/* Simple icon */}
-      <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-5 text-primary tracking-tighter"> {/* Bolder, tighter tracking */}
-        Creative Mobile Developer
-      </h1>
-      <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-normal"> {/* Standard leading */}
-        Building functional and engaging mobile applications for iOS & Android.
-      </p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        {/* Apply button styles directly to Link */}
-        <Link
-          href="#projects"
-          className={cn(
-            buttonVariants({ size: "lg" }),
-            "btn-brutalist-primary group" // Add brutalist styles
-          )}
+        {/* Content-focused description */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="grid md:grid-cols-2 gap-12 mb-20"
         >
-           <span className="flex items-center justify-center">
-             Explore Work <ArrowDown className="ml-2 h-5 w-5" />
-           </span>
-        </Link>
-         {/* Apply button styles directly to Link */}
-        <Link
-          href="#contact"
-          className={cn(
-             buttonVariants({ variant: "outline", size: "lg" }),
-             "btn-brutalist" // Add brutalist styles
-          )}
+          <motion.div 
+            className="content-block group cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.h3 
+              className="text-xl text-foreground mb-4 relative"
+              whileHover={{ x: 10 }}
+              transition={{ duration: 0.3 }}
+            >
+              The Work
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary origin-left"
+              />
+            </motion.h3>
+            <p className="editorial-text">
+              Six mobile applications serving over one million active users across government, healthcare, and education. 
+              Each project represents months of thoughtful problem-solving, user research, and technical iteration.
+            </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              className="absolute top-4 right-4 w-2 h-2 bg-primary rounded-full"
+            />
+          </motion.div>
+          
+          <motion.div 
+            className="content-block group cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.h3 
+              className="text-xl text-foreground mb-4 relative"
+              whileHover={{ x: 10 }}
+              transition={{ duration: 0.3 }}
+            >
+              The Impact
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary origin-left"
+              />
+            </motion.h3>
+            <p className="editorial-text">
+              From streamlining government services to digitizing healthcare workflows, these applications have fundamentally 
+              changed how people interact with essential services in their daily lives.
+            </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              className="absolute top-4 right-4 w-2 h-2 bg-primary rounded-full"
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Creative navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          className="flex flex-col space-y-1 text-muted-foreground relative"
         >
-           Contact Me
-        </Link>
+          {/* Decorative line */}
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "60px" }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="h-px bg-primary/30 mb-4"
+          />
+          
+          {[
+            { href: "#projects", text: "View selected work", delay: 0.1 },
+            { href: "#about", text: "Read about the process", delay: 0.2 },
+            { href: "#contact", text: "Start a conversation", delay: 0.3 }
+          ].map((link, index) => (
+            <motion.div
+              key={link.href}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 + link.delay }}
+            >
+              <Link
+                href={link.href}
+                className="group text-lg hover:text-primary transition-all duration-300 py-2 block relative overflow-hidden"
+              >
+                <motion.span
+                  className="relative z-10"
+                  whileHover={{ x: 20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  → {link.text}
+                </motion.span>
+                <motion.div
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "0%" }}
+                  className="absolute inset-0 bg-primary/5 -z-10"
+                  transition={{ duration: 0.3 }}
+                />
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+
       </div>
-       {/* Scroll down indicator removed for simplicity */}
     </section>
   );
 };

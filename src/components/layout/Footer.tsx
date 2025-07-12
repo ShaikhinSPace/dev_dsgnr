@@ -1,22 +1,38 @@
-'use client'; // Needed for new Date()
+'use client';
 
-import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-  const [currentYear, setCurrentYear] = useState<number | null>(null);
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-secondary-foreground py-6 mt-16 md:mt-24 border-t-2 border-foreground"> {/* Solid background, stark border */}
-      <div className="container mx-auto px-4 text-center text-sm">
-        {currentYear !== null ? (
-          <p>&copy; {currentYear} Sameer Alam Shaikh </p> /* Updated text */
-        ) : (
-          <p>Loading year...</p>
-        )}
+    <footer className="relative bg-background border-t border-border py-16">
+      <div className="max-w-6xl mx-auto px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
+        >
+          <div>
+            <div className="text-primary text-xs font-medium tracking-wider uppercase mb-2">
+              Digital Craftsman
+            </div>
+            <div className="text-muted-foreground text-sm">
+              Building mobile applications that serve real people
+            </div>
+          </div>
+
+          <div className="text-right">
+            <div className="text-muted-foreground text-sm mb-1">
+              &copy; {currentYear} — All work speaks for itself
+            </div>
+            <div className="text-xs text-muted-foreground/70">
+              Made with Next.js + Royal Blue
+            </div>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );

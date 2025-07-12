@@ -53,84 +53,88 @@ const ProjectCard = ({ name, iconUrl, hint }: ProjectCardProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        {/* Brutalist Card Styling */}
-        <Card className="border-2 border-foreground rounded-none shadow-none cursor-pointer group h-full flex flex-col bg-card"> {/* Stark border, no shadow/rounding, full height */}
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 border-b-2 border-foreground"> {/* Added bottom border */}
-            <CardTitle className="text-lg font-semibold text-primary">{name}</CardTitle>
-            <div className="relative h-16 w-16 flex-shrink-0 border border-foreground"> {/* Fixed size, border */}
-              <Image
-                  src={`https://picsum.photos/seed/${imageSeed}/64/64`} // Use seed
-                  alt={`${name} icon placeholder`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="bg-muted" // Placeholder background
-                  data-ai-hint={hint}
-                  unoptimized // Disable optimization for picsum
-              />
-            </div>
-          </CardHeader>
-          <CardContent className="p-4 pt-2 flex-grow flex flex-col justify-between"> {/* Flex grow for content */}
-            <p className="text-sm text-muted-foreground mb-4 flex-grow">Click to explore my role and app insights.</p>
-            <Button variant="outline" size="sm" className={cn("w-full btn-brutalist mt-auto")}> {/* Brutalist button, margin top auto */}
-              View Details <Info className="ml-2 h-4 w-4" />
-            </Button>
-          </CardContent>
-        </Card>
+        <button className="text-left w-auto inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-200 font-medium text-sm">
+          View technical details →
+        </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-card border-2 border-foreground rounded-none shadow-none"> {/* Brutalist dialog */}
-        <DialogHeader className="border-b-2 border-foreground pb-4">
-          <DialogTitle className="text-2xl text-primary font-bold">{name}</DialogTitle>
-          <DialogDescription className="text-base text-muted-foreground">
-            Insights into the application and my contributions.
+      <DialogContent className="sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-background border border-border rounded-xl">
+        <DialogHeader className="border-b border-border pb-6">
+          <DialogTitle className="text-2xl font-medium text-foreground">{name}</DialogTitle>
+          <DialogDescription className="text-muted-foreground mt-2">
+            Technical implementation and impact metrics
           </DialogDescription>
         </DialogHeader>
         <div className="py-6 space-y-6">
           {isLoading && (
-            <div className="space-y-4 p-4">
-              <Skeleton className="h-6 w-1/3 bg-muted/50 rounded-none" />
-              <Skeleton className="h-4 w-full bg-muted/50 rounded-none" />
-              <Skeleton className="h-4 w-5/6 bg-muted/50 rounded-none" />
-               <Skeleton className="h-6 w-1/3 mt-4 bg-muted/50 rounded-none" />
-              <Skeleton className="h-4 w-full bg-muted/50 rounded-none" />
-              <Skeleton className="h-4 w-full bg-muted/50 rounded-none" />
-              <Skeleton className="h-4 w-4/6 bg-muted/50 rounded-none" />
-               <div className="flex gap-4 pt-6">
-                 <Skeleton className="h-10 flex-1 bg-muted/50 rounded-none" />
-                 <Skeleton className="h-10 flex-1 bg-muted/50 rounded-none" />
+            <div className="space-y-4">
+              <Skeleton className="h-4 w-1/3 bg-muted" />
+              <Skeleton className="h-3 w-full bg-muted" />
+              <Skeleton className="h-3 w-5/6 bg-muted" />
+              <Skeleton className="h-4 w-1/3 mt-6 bg-muted" />
+              <Skeleton className="h-3 w-full bg-muted" />
+              <Skeleton className="h-3 w-4/6 bg-muted" />
+              <div className="flex gap-3 pt-6">
+                <Skeleton className="h-9 flex-1 bg-muted" />
+                <Skeleton className="h-9 flex-1 bg-muted" />
               </div>
             </div>
           )}
           {error && (
-            <div className="flex flex-col items-center justify-center p-8 bg-destructive/10 border-2 border-destructive text-destructive rounded-none">
-              <Layers className="h-10 w-10 mb-2" />
-              <p className="text-center font-medium">{error}</p>
+            <div className="flex flex-col items-center justify-center p-8 bg-destructive/5 border border-destructive/20 text-destructive rounded-lg">
+              <Layers className="h-8 w-8 mb-2" />
+              <p className="text-center text-sm">{error}</p>
             </div>
           )}
           {appDetails && !isLoading && (
-            <div className="space-y-5">
-              <div>
-                <h4 className="font-semibold text-primary mb-1.5 flex items-center gap-2 text-lg"><Users className="h-5 w-5 text-accent"/> User Impact</h4>
-                <p className="text-foreground/90 pl-7 text-base">{appDetails.userBase.toLocaleString()} estimated downloads/active users.</p>
+            <div className="space-y-6">
+              <div className="content-block">
+                <h4 className="font-medium text-foreground mb-2 flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  User Impact
+                </h4>
+                <p className="editorial-text">
+                  {appDetails.userBase.toLocaleString()} estimated downloads/active users across app stores.
+                </p>
               </div>
-              <div>
-                <h4 className="font-semibold text-primary mb-1.5 flex items-center gap-2 text-lg"><Info className="h-5 w-5 text-accent"/> My Contribution</h4>
-                <p className="text-foreground/90 pl-7 text-base leading-normal">{appDetails.contributionDetails}</p> {/* Standard leading */}
+              
+              <div className="content-block">
+                <h4 className="font-medium text-foreground mb-2 flex items-center gap-2">
+                  <Info className="h-4 w-4" />
+                  Technical Contribution
+                </h4>
+                <p className="editorial-text">
+                  {appDetails.contributionDetails}
+                </p>
               </div>
-              {/* Placeholder download links - Brutalist style */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-5">
-                 <Button variant="outline" className={cn("flex-1 btn-brutalist")}>
-                    <Download className="mr-2 h-4 w-4" /> Google Play (Example)
+              
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="flex-1 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Download className="mr-2 h-4 w-4" /> 
+                  Google Play
                 </Button>
-                 <Button variant="outline" className={cn("flex-1 btn-brutalist")}>
-                    <Download className="mr-2 h-4 w-4" /> App Store (Example)
-                 </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="flex-1 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Download className="mr-2 h-4 w-4" /> 
+                  App Store
+                </Button>
               </div>
             </div>
           )}
         </div>
-        <DialogFooter className="border-t-2 border-foreground pt-4">
+        <DialogFooter className="border-t border-border pt-6">
           <DialogClose asChild>
-            <Button type="button" variant="secondary" className="rounded-none hover:bg-muted">
+            <Button 
+              type="button" 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground"
+            >
               Close
             </Button>
           </DialogClose>
