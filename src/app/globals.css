@@ -84,7 +84,7 @@
   
   /* Content-focused styling */
   .content-block {
-    @apply bg-secondary/30 border border-border rounded-xl p-8 relative overflow-hidden;
+    @apply bg-secondary/30 border border-border rounded-xl p-6 md:p-8 relative overflow-hidden;
     backdrop-filter: blur(10px);
   }
   
@@ -105,8 +105,15 @@
   
   .editorial-text {
     @apply text-muted-foreground leading-relaxed;
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  @media (min-width: 768px) {
+    .editorial-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
   }
   
   /* Creative cursor effects */

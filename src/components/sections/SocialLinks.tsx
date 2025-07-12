@@ -53,19 +53,19 @@ const SocialLinks = () => {
     <section 
       ref={ref}
       id="social" 
-      className="relative py-20 bg-background"
+      className="relative py-16 md:py-20 bg-background"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="max-w-6xl mx-auto px-8"
+        className="max-w-6xl mx-auto px-4 md:px-8"
       >
-        <motion.div variants={titleVariants} className="mb-16">
+        <motion.div variants={titleVariants} className="mb-12 md:mb-16">
           <div className="text-primary text-sm font-medium tracking-wider uppercase mb-6">
             Connect
           </div>
-          <h2 className="text-3xl md:text-4xl text-foreground font-light leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground font-light leading-tight">
             Find me across the{" "}
             <span className="text-primary">digital landscape</span>
           </h2>
@@ -73,18 +73,18 @@ const SocialLinks = () => {
 
         <motion.div
           variants={containerVariants}
-          className="space-y-6"
+          className="space-y-4 md:space-y-6"
         >
           {socialLinks.map((social, index) => (
             <motion.div
               key={social.name}
               variants={titleVariants}
-              className="border-b border-border pb-6 last:border-b-0"
+              className="border-b border-border pb-4 md:pb-6 last:border-b-0"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl text-foreground mb-2">{social.name}</h3>
-                  <p className="text-muted-foreground">{social.description}</p>
+                  <h3 className="text-lg md:text-xl text-foreground mb-1 md:mb-2">{social.name}</h3>
+                  <p className="text-muted-foreground text-sm md:text-base">{social.description}</p>
                 </div>
                 <Link
                   href={social.url}

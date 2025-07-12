@@ -31,7 +31,7 @@ const Header = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
         <div className="flex justify-between items-center">
           
           {/* Minimal mark */}

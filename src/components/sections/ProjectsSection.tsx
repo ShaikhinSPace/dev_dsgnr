@@ -56,18 +56,18 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
     <section 
       ref={ref}
       id="projects" 
-      className="relative py-32 bg-background"
+      className="relative py-16 md:py-32 bg-background"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="max-w-6xl mx-auto px-8"
+        className="max-w-6xl mx-auto px-4 md:px-8"
       >
         {/* Editorial header */}
-        <motion.div variants={titleVariants} className="mb-20 relative">
-          {/* Background pattern */}
-          <div className="absolute -top-20 -left-20 w-40 h-40 opacity-5">
+        <motion.div variants={titleVariants} className="mb-12 md:mb-20 relative">
+          {/* Background pattern - hidden on mobile */}
+          <div className="hidden md:block absolute -top-20 -left-20 w-40 h-40 opacity-5">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -95,7 +95,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
             />
           </motion.div>
           
-          <h2 className="text-4xl md:text-5xl text-foreground mb-8 font-light leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 md:mb-8 font-light leading-tight">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
-            className="editorial-text max-w-3xl relative"
+            className="editorial-text max-w-3xl relative text-sm md:text-base"
           >
             <motion.div
               initial={{ scale: 0 }}
@@ -191,7 +191,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
               />
               
               <motion.div 
-                className="grid md:grid-cols-3 gap-8 items-start"
+                className="grid md:grid-cols-3 gap-6 md:gap-8 items-start"
                 whileHover={{ x: 10 }}
                 transition={{ duration: 0.3 }}
               >
@@ -204,7 +204,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                     className="absolute -left-6 top-1 w-1 h-1 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"
                   />
                   <motion.h3 
-                    className="text-2xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300"
+                    className="text-xl md:text-2xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300"
                     whileHover={{ x: 5 }}
                   >
                     {project.name}
@@ -232,7 +232,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                 </div>
                 
                 <div className="md:col-span-2">
-                  <p className="editorial-text mb-6">
+                  <p className="editorial-text mb-6 text-sm md:text-base">
                     {index === 0 && "A comprehensive platform serving over 500,000 citizens with streamlined access to government services, reducing processing time from weeks to hours."}
                     {index === 1 && "Healthcare workflow management system protecting sensitive patient data while enabling efficient care coordination across multiple facilities."}
                     {index === 2 && "Educational platform connecting students, teachers, and administrators with real-time progress tracking and resource management."}

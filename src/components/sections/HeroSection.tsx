@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-start justify-center pt-32 bg-background">
-      <div className="max-w-5xl mx-auto px-8">
+    <section className="relative min-h-screen flex items-start justify-center pt-20 md:pt-32 bg-background">
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
         
         {/* Editorial-style intro */}
         <motion.div
@@ -15,7 +15,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-16 relative"
         >
-          {/* Floating accent elements */}
+          {/* Floating accent elements - hidden on mobile */}
           <motion.div
             animate={{ 
               y: [0, -10, 0],
@@ -26,7 +26,7 @@ const HeroSection = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute -top-4 -left-4 w-24 h-24 bg-primary/5 rounded-full blur-xl"
+            className="hidden md:block absolute -top-4 -left-4 w-24 h-24 bg-primary/5 rounded-full blur-xl"
           />
           <motion.div
             animate={{ 
@@ -39,7 +39,7 @@ const HeroSection = () => {
               ease: "easeInOut",
               delay: 2
             }}
-            className="absolute top-20 -right-8 w-32 h-32 bg-primary/3 rounded-full blur-2xl"
+            className="hidden md:block absolute top-20 -right-8 w-32 h-32 bg-primary/3 rounded-full blur-2xl"
           />
           
           <motion.div
@@ -57,7 +57,7 @@ const HeroSection = () => {
             />
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-foreground mb-8 leading-[0.9] font-light relative">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8 leading-[0.9] font-light relative">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="grid md:grid-cols-2 gap-12 mb-20"
+          className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
         >
           <motion.div 
             className="content-block group cursor-pointer"
@@ -159,7 +159,7 @@ const HeroSection = () => {
             initial={{ width: 0 }}
             animate={{ width: "60px" }}
             transition={{ duration: 1, delay: 1.5 }}
-            className="h-px bg-primary/30 mb-4"
+            className="h-px bg-primary/30 mb-6 md:mb-4"
           />
           
           {[
@@ -175,7 +175,7 @@ const HeroSection = () => {
             >
               <Link
                 href={link.href}
-                className="group text-lg hover:text-primary transition-all duration-300 py-2 block relative overflow-hidden"
+                className="group text-base md:text-lg hover:text-primary transition-all duration-300 py-2 block relative overflow-hidden"
               >
                 <motion.span
                   className="relative z-10"

@@ -37,25 +37,25 @@ const ContactSection = () => {
     <section 
       ref={ref}
       id="contact" 
-      className="relative py-32 bg-background"
+      className="relative py-16 md:py-32 bg-background"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="max-w-6xl mx-auto px-8"
+        className="max-w-6xl mx-auto px-4 md:px-8"
       >
         {/* Editorial header */}
-        <motion.div variants={titleVariants} className="mb-20">
+        <motion.div variants={titleVariants} className="mb-12 md:mb-20">
           <div className="text-primary text-sm font-medium tracking-wider uppercase mb-6">
             Get In Touch
           </div>
-          <h2 className="text-4xl md:text-5xl text-foreground mb-8 font-light leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 md:mb-8 font-light leading-tight">
             Let's build something{" "}
             <span className="text-primary">meaningful</span>{" "}
             together
           </h2>
-          <div className="editorial-text max-w-3xl">
+          <div className="editorial-text max-w-3xl text-sm md:text-base">
             Whether you're looking to build a new mobile application, improve an existing one, 
             or need consultation on mobile strategy, I'm interested in projects that make a 
             real difference in people's lives.
@@ -63,7 +63,7 @@ const ContactSection = () => {
         </motion.div>
 
         {/* Content blocks */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20">
           <motion.div
             variants={titleVariants}
             className="content-block group cursor-pointer"
@@ -71,7 +71,7 @@ const ContactSection = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.h3 
-              className="text-xl text-foreground mb-4 relative"
+              className="text-lg md:text-xl text-foreground mb-4 relative"
               whileHover={{ x: 10 }}
             >
               What I'm Looking For
@@ -82,7 +82,7 @@ const ContactSection = () => {
                 transition={{ duration: 0.3 }}
               />
             </motion.h3>
-            <div className="editorial-text space-y-3">
+            <div className="editorial-text space-y-3 text-sm md:text-base">
               {[
                 "Mobile applications with social impact",
                 "Complex technical challenges", 
@@ -115,7 +115,7 @@ const ContactSection = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.h3 
-              className="text-xl text-foreground mb-4 relative"
+              className="text-lg md:text-xl text-foreground mb-4 relative"
               whileHover={{ x: 10 }}
             >
               How I Work
@@ -126,7 +126,7 @@ const ContactSection = () => {
                 transition={{ duration: 0.3 }}
               />
             </motion.h3>
-            <div className="editorial-text space-y-3">
+            <div className="editorial-text space-y-3 text-sm md:text-base">
               {[
                 "Discovery and requirements gathering",
                 "Iterative development with regular check-ins",
@@ -158,9 +158,9 @@ const ContactSection = () => {
           variants={titleVariants}
           className="border-t border-border pt-16"
         >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 text-center">
             <div>
-              <div className="text-foreground font-medium mb-2">Email</div>
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">Email</div>
               <Link 
                 href={`mailto:${emailAddress}`}
                 className="text-primary hover:text-primary/80 transition-colors duration-200"
@@ -170,7 +170,7 @@ const ContactSection = () => {
             </div>
             
             <div>
-              <div className="text-foreground font-medium mb-2">LinkedIn</div>
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">LinkedIn</div>
               <Link 
                 href="https://linkedin.com/in/yourprofile"
                 className="text-primary hover:text-primary/80 transition-colors duration-200"
@@ -180,8 +180,8 @@ const ContactSection = () => {
             </div>
             
             <div>
-              <div className="text-foreground font-medium mb-2">Response Time</div>
-              <div className="text-muted-foreground">24-48 hours</div>
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">Response Time</div>
+              <div className="text-muted-foreground text-sm md:text-base">24-48 hours</div>
             </div>
           </div>
         </motion.div>

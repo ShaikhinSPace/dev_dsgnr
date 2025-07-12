@@ -34,20 +34,20 @@ const AboutSection = () => {
     <section 
       ref={ref}
       id="about" 
-      className="relative py-32 bg-background"
+      className="relative py-16 md:py-32 bg-background"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="max-w-6xl mx-auto px-8"
+        className="max-w-6xl mx-auto px-4 md:px-8"
       >
         {/* Editorial header */}
-        <motion.div variants={titleVariants} className="mb-20">
+        <motion.div variants={titleVariants} className="mb-12 md:mb-20">
           <div className="text-primary text-sm font-medium tracking-wider uppercase mb-6">
             Process & Philosophy
           </div>
-          <h2 className="text-4xl md:text-5xl text-foreground mb-8 font-light leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 md:mb-8 font-light leading-tight">
             Building software that{" "}
             <span className="text-primary">scales</span>{" "}
             and endures
@@ -55,13 +55,13 @@ const AboutSection = () => {
         </motion.div>
 
         {/* Content blocks */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20">
           <motion.div
             variants={titleVariants}
             className="content-block"
           >
-            <h3 className="text-xl text-foreground mb-4">Technical Approach</h3>
-            <p className="editorial-text">
+            <h3 className="text-lg md:text-xl text-foreground mb-4">Technical Approach</h3>
+            <p className="editorial-text text-sm md:text-base">
               Every application begins with understanding the problem space deeply. I work with stakeholders to 
               identify core user journeys, then architect solutions that can evolve with changing requirements. 
               Whether it's React Native for cross-platform efficiency or native Swift/Kotlin for performance-critical 
@@ -73,8 +73,8 @@ const AboutSection = () => {
             variants={titleVariants}
             className="content-block"
           >
-            <h3 className="text-xl text-foreground mb-4">Collaboration & Delivery</h3>
-            <p className="editorial-text">
+            <h3 className="text-lg md:text-xl text-foreground mb-4">Collaboration & Delivery</h3>
+            <p className="editorial-text text-sm md:text-base">
               Working across government, healthcare, and education sectors has taught me the importance of clear 
               communication and iterative development. I believe in shipping early, gathering feedback, and 
               refining based on real user behavior rather than assumptions.
@@ -87,11 +87,11 @@ const AboutSection = () => {
           variants={titleVariants}
           className="border-t border-border pt-16"
         >
-          <h3 className="text-2xl text-foreground mb-8">Core Technologies</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-muted-foreground">
+          <h3 className="text-xl md:text-2xl text-foreground mb-6 md:mb-8">Core Technologies</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-muted-foreground">
             <div>
-              <div className="text-foreground font-medium mb-2">Frontend</div>
-              <div className="space-y-1 text-sm">
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">Frontend</div>
+              <div className="space-y-1 text-xs md:text-sm">
                 <div>React Native</div>
                 <div>Flutter</div>
                 <div>Swift (iOS)</div>
@@ -99,8 +99,8 @@ const AboutSection = () => {
               </div>
             </div>
             <div>
-              <div className="text-foreground font-medium mb-2">Backend</div>
-              <div className="space-y-1 text-sm">
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">Backend</div>
+              <div className="space-y-1 text-xs md:text-sm">
                 <div>Node.js</div>
                 <div>Firebase</div>
                 <div>RESTful APIs</div>
@@ -108,8 +108,8 @@ const AboutSection = () => {
               </div>
             </div>
             <div>
-              <div className="text-foreground font-medium mb-2">Process</div>
-              <div className="space-y-1 text-sm">
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">Process</div>
+              <div className="space-y-1 text-xs md:text-sm">
                 <div>CI/CD Pipelines</div>
                 <div>Automated Testing</div>
                 <div>Performance Monitoring</div>
@@ -117,8 +117,8 @@ const AboutSection = () => {
               </div>
             </div>
             <div>
-              <div className="text-foreground font-medium mb-2">Design</div>
-              <div className="space-y-1 text-sm">
+              <div className="text-foreground font-medium mb-2 text-sm md:text-base">Design</div>
+              <div className="space-y-1 text-xs md:text-sm">
                 <div>User Research</div>
                 <div>Prototyping</div>
                 <div>Accessibility</div>
